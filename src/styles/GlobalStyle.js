@@ -258,12 +258,7 @@ const GlobalStyle = createGlobalStyle`
     color: inherit;
     position: relative;
     transition: var(--transition);
-
-    &:hover,
-    &:focus {
-      color: var(--green);
-    }
-
+    
     &.inline-link {
       ${({ theme }) => theme.mixins.inlineLink};
     }
