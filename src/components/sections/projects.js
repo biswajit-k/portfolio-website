@@ -17,11 +17,7 @@ const StyledProjectsSection = styled.section`
   }
 
   .archive-link {
-    font-family: var(--font-mono);
-    font-size: var(--fz-sm);
-    &:after {
-      bottom: 0.1em;
-    }
+    ${({ theme }) => theme.mixins.gotoLink};
   }
 
   .projects-grid {

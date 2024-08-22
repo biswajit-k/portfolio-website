@@ -20,11 +20,6 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: inherit;
   }
 
-  ::selection {
-    background-color: var(--lightest-navy);
-    color: var(--lightest-slate);
-  }
-
   /* Provide basic, default focus styles.*/
   :focus {
     outline: 2px dashed var(--green);
@@ -50,23 +45,6 @@ const GlobalStyle = createGlobalStyle`
     outline-offset: 3px;
   }
 
-  /* Scrollbar Styles */
-  html {
-    scrollbar-width: thin;
-    scrollbar-color: var(--dark-slate) var(--navy);
-  }
-  ::-webkit-scrollbar {
-    width: 12px;
-  }
-  ::-webkit-scrollbar-track {
-    background: var(--navy);
-  }
-  ::-webkit-scrollbar-thumb {
-    background-color: var(--dark-slate);
-    border: 3px solid var(--navy);
-    border-radius: 10px;
-  }
-
   body {
     margin: 0;
     width: 100%;
@@ -74,8 +52,8 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    background-color: var(--navy);
-    color: var(--slate);
+    background-color: var(--pure-white);
+    color: var(--medium-gray);
     font-family: var(--font-sans);
     font-size: var(--fz-xl);
     line-height: 1.3;
@@ -165,7 +143,7 @@ const GlobalStyle = createGlobalStyle`
   h6 {
     margin: 0 0 10px 0;
     font-weight: 600;
-    color: var(--lightest-slate);
+    color: var(--dark-gray);
     line-height: 1.1;
   }
 
@@ -187,6 +165,7 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     font-size: clamp(26px, 5vw, var(--fz-heading));
     white-space: nowrap;
+    transform: none !important;
 
     &:before {
       position: relative;
@@ -194,7 +173,7 @@ const GlobalStyle = createGlobalStyle`
       counter-increment: section;
       content: '0' counter(section) '.';
       margin-right: 10px;
-      color: var(--green);
+      color: var(--medium-gray);
       font-family: var(--font-mono);
       font-size: clamp(var(--fz-md), 3vw, var(--fz-xl));
       font-weight: 400;
@@ -255,10 +234,10 @@ const GlobalStyle = createGlobalStyle`
     display: inline-block;
     text-decoration: none;
     text-decoration-skip-ink: auto;
-    color: inherit;
+    color: var(--black-hyperlink);
     position: relative;
+    font-weight: 500;
     transition: var(--transition);
-    
     &.inline-link {
       ${({ theme }) => theme.mixins.inlineLink};
     }

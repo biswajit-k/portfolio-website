@@ -1,9 +1,9 @@
 import { css } from 'styled-components';
 
 const button = css`
-  color: var(--green);
+  color: var(--black);
   background-color: transparent;
-  border: 1px solid var(--green);
+  border: 1px solid var(--black-light);
   border-radius: var(--border-radius);
   font-size: var(--fz-xs);
   font-family: var(--font-mono);
@@ -15,7 +15,7 @@ const button = css`
   &:hover,
   &:focus-visible {
     outline: none;
-    box-shadow: 4px 4px 0 0 var(--green);
+    box-shadow: 4px 4px 0 0 var(--medium-gray);
     transform: translate(-5px, -5px);
   }
   &:after {
@@ -46,7 +46,7 @@ const mixins = {
 
     &:hover,
     &:focus-visible {
-      color: var(--green);
+      color: var(--black);
       outline: 0;
     }
   `,
@@ -73,7 +73,7 @@ const mixins = {
       content: '';
       display: block;
       width: 0;
-      height: 1px;
+      height: 1.3px;
       position: relative;
       bottom: 0.37em;
       background-color: var(--black);
@@ -87,9 +87,9 @@ const mixins = {
   button,
 
   smallButton: css`
-    color: var(--green);
+    color: var(--black);
     background-color: transparent;
-    border: 1px solid var(--green);
+    border: 1px solid var(--black-light);
     border-radius: var(--border-radius);
     padding: 0.75rem 1rem;
     font-size: var(--fz-xs);
@@ -101,7 +101,7 @@ const mixins = {
     &:hover,
     &:focus-visible {
       outline: none;
-      box-shadow: 3px 3px 0 0 var(--green);
+      box-shadow: 3px 3px 0 0 var(--medium-gray);
       transform: translate(-4px, -4px);
     }
     &:after {
@@ -110,9 +110,9 @@ const mixins = {
   `,
 
   bigButton: css`
-    color: var(--green);
+    color: var(--black);
     background-color: transparent;
-    border: 1px solid var(--green);
+    border: 1px solid var(--black-light);
     border-radius: var(--border-radius);
     padding: 1.25rem 1.75rem;
     font-size: var(--fz-sm);
@@ -124,7 +124,7 @@ const mixins = {
     &:hover,
     &:focus-visible {
       outline: none;
-      box-shadow: 4px 4px 0 0 var(--green);
+      box-shadow: 4px 4px 0 0 var(--medium-gray);
       transform: translate(-5px, -5px);
     }
     &:after {
@@ -133,12 +133,12 @@ const mixins = {
   `,
 
   boxShadow: css`
-    box-shadow: 0 10px 30px -15px var(--navy-shadow);
+    box-shadow: 0 10px 30px -15px var(--medium-gray);
     transition: var(--transition);
 
     &:hover,
     &:focus-visible {
-      box-shadow: 0 20px 30px -15px var(--navy-shadow);
+      box-shadow: 0 20px 30px -15px var(--medium-gray);
     }
   `,
 
@@ -155,7 +155,7 @@ const mixins = {
         content: '▹';
         position: absolute;
         left: 0;
-        color: var(--green);
+        color: var(--black);
       }
     }
   `,
@@ -164,6 +164,14 @@ const mixins = {
     list-style: none;
     padding: 0;
     margin: 0;
+  `,
+
+  gotoLink: css`
+    font-family: var(--font-mono);
+    font-size: var(--fz-sm);
+    &:after {
+      bottom: 0.1em;
+    }
   `,
 };
 

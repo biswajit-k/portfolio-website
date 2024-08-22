@@ -18,7 +18,13 @@ const variables = css`
     --blue: #57cbff;
     --black: rgb(15 23 42 / 1);
     --black-light: rgb(23 23 23 / 1);
+    --dark-gray: #343a40;
+    --medium-gray: #495057;
+    --light-gray: #6c757d;
+    --bright-gray: #adb5bd;
     --pure-white: #fff;
+    --text-color: rgb(55 65 81 / 1);
+    --black-hyperlink: #0f172a;
 
     --font-sans: 'Calibre', 'Inter', 'San Francisco', 'SF Pro Text', -apple-system, system-ui,
       sans-serif;

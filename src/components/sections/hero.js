@@ -19,7 +19,7 @@ const StyledHeroSection = styled.section`
 
   h1 {
     margin: 0 0 30px 4px;
-    color: var(--green);
+    color: var(--medium-gray);
     font-family: var(--font-mono);
     font-size: clamp(var(--fz-sm), 5vw, var(--fz-md));
     font-weight: 400;
@@ -31,13 +31,13 @@ const StyledHeroSection = styled.section`
 
   h3 {
     margin-top: 5px;
-    color: var(--slate);
+    color: var(--black);
     line-height: 0.9;
   }
 
   p {
     margin: 20px 0 0;
-    max-width: 540px;
+    /* max-width: 540px; */
   }
 
   .email-link {
@@ -60,8 +60,7 @@ const Hero = () => {
   }, []);
 
   const one = <h1>Hi, my name is</h1>;
-  const two = <h2 className="big-heading">Biswajit Kaushik.</h2>;
-  const three = <h3 className="big-heading">I build things for the people.</h3>;
+  const three = <h3 className="big-heading">Biswajit Kaushik</h3>;
   const four = (
     <>
       <p>
@@ -75,13 +74,13 @@ const Hero = () => {
       </p>
     </>
   );
-  const five = (
-    <a className="email-link" href="https://dev.to/biswajitk" target="_blank" rel="noreferrer">
-      Check out my blogs!
-    </a>
-  );
+  // const five = (
+  //   <a className="email-link" href="https://dev.to/biswajitk" target="_blank" rel="noreferrer">
+  //     Check out my blogs!
+  //   </a>
+  // );
 
-  const items = [one, two, three, four, five];
+  const items = [one, three, four];
 
   return (
     <StyledHeroSection>
