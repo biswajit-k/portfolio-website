@@ -238,6 +238,7 @@ const GlobalStyle = createGlobalStyle`
     position: relative;
     font-weight: 500;
     transition: var(--transition);
+    transform: none;
     &.inline-link {
       ${({ theme }) => theme.mixins.inlineLink};
     }
@@ -294,12 +295,12 @@ const GlobalStyle = createGlobalStyle`
       li {
         position: relative;
         padding-left: 30px;
-        margin-bottom: 10px;
+        margin-bottom: 30px;
         &:before {
           content: '▹';
           position: absolute;
           left: 0;
-          color: var(--green);
+          color: var(--light-gray);
         }
       }
     }
@@ -371,7 +372,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .subtitle {
-    color: var(--green);
+    color: var(--medium-gray);
     margin: 0 0 20px 0;
     font-size: var(--fz-md);
     font-family: var(--font-mono);
@@ -386,6 +387,7 @@ const GlobalStyle = createGlobalStyle`
 
     a {
       ${({ theme }) => theme.mixins.inlineLink};
+      color: var(--medium-gray);
       line-height: 1.5;
     }
   }
@@ -394,7 +396,6 @@ const GlobalStyle = createGlobalStyle`
     display: flex;
     align-items: center;
     margin-bottom: 50px;
-    color: var(--green);
 
     .arrow {
       display: block;
@@ -403,13 +404,26 @@ const GlobalStyle = createGlobalStyle`
     }
 
     a {
-      ${({ theme }) => theme.mixins.inlineLink};
-      font-family: var(--font-mono);
       font-size: var(--fz-sm);
-      font-weight: 600;
       line-height: 1.5;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+    }
+  }
+
+  .styled_link {
+    display: inline-block;
+    text-decoration: none;
+    text-decoration-skip-ink: auto;
+    color: var(--medium-gray);
+    position: relative;
+    font-weight: 500;
+    transition: var(--transition);
+    transform: none;
+    font-family: var(--font-mono);
+    font-size: var(--fz-sm);
+    ${({ theme }) => theme.mixins.inlineLink};
+    &:after {
+      bottom: 0.1em;
     }
   }
 

@@ -1,9 +1,10 @@
 ---
 date: '1'
-title: 'Logflow Insight'
-cover: './cover.jpg'
-github: 'https://github.com/biswajit-k/log-ingester-elasticsearch'
-external: 'https://www.youtube.com/watch?v=JjedCSq7-J0&feature=youtu.be'
+title: Logflow Insight
+cover: ./cover.jpg
+github: https://github.com/biswajit-k/log-ingester-elasticsearch
+external: https://www.youtube.com/watch?v=JjedCSq7-J0&feature=youtu.be
+slug: /blog/log-flow
 tech:
   - Elasticsearch
   - Kafka

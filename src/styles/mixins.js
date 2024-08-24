@@ -54,18 +54,15 @@ const mixins = {
   inlineLink: css`
     display: inline-block;
     position: relative;
-    color: var(--black);
     transition: var(--transition);
 
     &:hover,
     &:focus-visible {
-      color: var(--black);
       outline: 0;
       &:after {
         width: 100%;
       }
       & > * {
-        color: var(--black) !important;
         transition: var(--transition);
       }
     }
@@ -164,14 +161,6 @@ const mixins = {
     list-style: none;
     padding: 0;
     margin: 0;
-  `,
-
-  gotoLink: css`
-    font-family: var(--font-mono);
-    font-size: var(--fz-sm);
-    &:after {
-      bottom: 0.1em;
-    }
   `,
 };
 

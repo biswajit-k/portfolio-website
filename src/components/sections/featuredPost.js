@@ -10,9 +10,6 @@ const FeaturedPostSection = styled.section`
     margin-top: 5rem;
     text-align: end;
   }
-  .more-link {
-    ${({ theme }) => theme.mixins.gotoLink};
-  }
 `;
 
 const StyledPost = styled.div`
@@ -117,7 +114,7 @@ const FeaturedPost = () => {
           })}
       </div>
       <div className="link-container">
-        <Link className="inline-link more-link" to="/archive" ref={revealArchiveLink}>
+        <Link className="styled_link" to="/archive" ref={revealArchiveLink}>
           see all posts &rarr;
         </Link>
       </div>

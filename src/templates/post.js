@@ -29,10 +29,11 @@ const StyledPostContent = styled.div`
   p {
     margin: 1em 0;
     line-height: 1.5;
-    color: var(--light-slate);
   }
 
-  a {
+  li > a {
+    font-weight: 400;
+    line-height: 1.6;
     ${({ theme }) => theme.mixins.inlineLink};
   }
 
@@ -61,7 +62,9 @@ const PostTemplate = ({ data, location }) => {
       <StyledPostContainer>
         <span className="breadcrumb">
           <span className="arrow">&larr;</span>
-          <Link to="/pensieve">All memories</Link>
+          <Link className="styled_link" to="/blog">
+            All Posts
+          </Link>
         </span>
 
         <StyledPostHeader>
@@ -78,7 +81,7 @@ const PostTemplate = ({ data, location }) => {
             {tags &&
               tags.length > 0 &&
               tags.map((tag, i) => (
-                <Link key={i} to={`/pensieve/tags/${kebabCase(tag)}/`} className="tag">
+                <Link key={i} to={`/blog/tags/${kebabCase(tag)}/`} className="tag">
                   #{tag}
                 </Link>
               ))}
@@ -99,7 +102,7 @@ PostTemplate.propTypes = {
 };
 
 export const pageQuery = graphql`
-  query($path: String!) {
+  query ($path: String!) {
     markdownRemark(frontmatter: { slug: { eq: $path } }) {
       html
       frontmatter {

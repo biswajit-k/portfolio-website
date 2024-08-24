@@ -9,16 +9,12 @@ import { Layout } from '@components';
 const StyledTagsContainer = styled.main`
   max-width: 1000px;
 
-  a {
-    ${({ theme }) => theme.mixins.inlineLink};
-  }
-
   h1 {
     ${({ theme }) => theme.mixins.flexBetween};
     margin-bottom: 50px;
 
     a {
-      font-size: var(--fz-lg);
+      font-size: var(--fz-md);
       font-weight: 400;
     }
   }
@@ -30,11 +26,11 @@ const StyledTagsContainer = styled.main`
         font-size: inherit;
         margin: 0;
         a {
-          color: var(--light-slate);
+          color: var(--black);
         }
       }
       .subtitle {
-        color: var(--slate);
+        color: var(--medium-gray);
         font-size: var(--fz-sm);
 
         .tag {
@@ -56,13 +52,17 @@ const TagTemplate = ({ pageContext, data, location }) => {
       <StyledTagsContainer>
         <span className="breadcrumb">
           <span className="arrow">&larr;</span>
-          <Link to="/pensieve">All memories</Link>
+          <Link className="styled_link" to="/blog">
+            All posts
+          </Link>
         </span>
 
         <h1>
           <span>#{tag}</span>
           <span>
-            <Link to="/pensieve/tags">View all tags</Link>
+            <Link className="styled_link" to="/blog/tags">
+              View all tags
+            </Link>
           </span>
         </h1>
 
@@ -86,7 +86,7 @@ const TagTemplate = ({ pageContext, data, location }) => {
                   {tags &&
                     tags.length > 0 &&
                     tags.map((tag, i) => (
-                      <Link key={i} to={`/pensieve/tags/${kebabCase(tag)}/`} className="tag">
+                      <Link key={i} to={`/blog/tags/${kebabCase(tag)}/`} className="tag">
                         #{tag}
                       </Link>
                     ))}
@@ -124,7 +124,7 @@ TagTemplate.propTypes = {
 };
 
 export const pageQuery = graphql`
-  query($tag: String!) {
+  query ($tag: String!) {
     allMarkdownRemark(
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
