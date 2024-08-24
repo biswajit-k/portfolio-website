@@ -16,7 +16,7 @@ const StyledProjectsGrid = styled.ul`
   }
 `;
 
-const StyledProject = styled.li`
+const StyledFeaturedProject = styled.li`
   position: relative;
   display: grid;
   grid-gap: 10px;
@@ -117,7 +117,7 @@ const StyledProject = styled.li`
 
   .project-overline {
     margin: 10px 0;
-    color: var(--green);
+    color: var(--medium-gray);
     font-family: var(--font-mono);
     font-size: var(--fz-xs);
     font-weight: 400;
@@ -192,7 +192,7 @@ const StyledProject = styled.li`
 
     li {
       margin: 0 20px 5px 0;
-      color: var(--light-slate);
+      color: var(--light-gray);
       font-family: var(--font-mono);
       font-size: var(--fz-xs);
       white-space: nowrap;
@@ -214,11 +214,17 @@ const StyledProject = styled.li`
     position: relative;
     margin-top: 10px;
     margin-left: -10px;
-    color: var(--lightest-slate);
 
     a {
+      color: var(--light-gray);
       ${({ theme }) => theme.mixins.flexCenter};
       padding: 10px;
+      transition: var(--transition);
+
+      &:hover,
+      &:focus {
+        color: var(--medium-gray);
+      }
 
       &.external {
         svg {
@@ -256,7 +262,6 @@ const StyledProject = styled.li`
     a {
       width: 100%;
       height: 100%;
-      background-color: var(--green);
       border-radius: var(--border-radius);
       vertical-align: middle;
 
@@ -283,7 +288,6 @@ const StyledProject = styled.li`
         bottom: 0;
         z-index: 3;
         transition: var(--transition);
-        background-color: var(--navy);
         mix-blend-mode: screen;
       }
     }
@@ -307,7 +311,7 @@ const Featured = () => {
   const data = useStaticQuery(graphql`
     {
       featured: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/content/featured/" } }
+        filter: { fileAbsolutePath: { regex: "/content/featured/featured/" } }
         sort: { fields: [frontmatter___date], order: ASC }
       ) {
         edges {
@@ -345,11 +349,7 @@ const Featured = () => {
   }, []);
 
   return (
-    <section id="projects">
-      <h2 className="numbered-heading" ref={revealTitle}>
-        Some Things I've Built
-      </h2>
-
+    <div id="projects">
       <StyledProjectsGrid>
         {featuredProjects &&
           featuredProjects.map(({ node }, i) => {
@@ -358,7 +358,7 @@ const Featured = () => {
             const image = getImage(cover);
 
             return (
-              <StyledProject key={i} ref={el => (revealProjects.current[i] = el)}>
+              <StyledFeaturedProject key={i} ref={el => (revealProjects.current[i] = el)}>
                 <div className="project-content">
                   <div>
                     <p className="project-overline">Featured Project</p>
@@ -405,11 +405,11 @@ const Featured = () => {
                     <GatsbyImage image={image} alt={title} className="img" />
                   </a>
                 </div>
-              </StyledProject>
+              </StyledFeaturedProject>
             );
           })}
       </StyledProjectsGrid>
-    </section>
+    </div>
   );
 };
 

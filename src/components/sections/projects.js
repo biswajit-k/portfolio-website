@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
 import { srConfig } from '@config';
@@ -14,10 +14,6 @@ const StyledProjectsSection = styled.section`
 
   h2 {
     font-size: clamp(24px, 5vw, var(--fz-heading));
-  }
-
-  .archive-link {
-    ${({ theme }) => theme.mixins.gotoLink};
   }
 
   .projects-grid {
@@ -67,7 +63,7 @@ const StyledProject = styled.li`
     height: 100%;
     padding: 2rem 1.75rem;
     border-radius: var(--border-radius);
-    background-color: var(--light-navy);
+    background-color: var(--pure-white);
     transition: var(--transition);
     overflow: auto;
   }
@@ -77,7 +73,7 @@ const StyledProject = styled.li`
     margin-bottom: 35px;
 
     .folder {
-      color: var(--green);
+      color: var(--light-gray);
       svg {
         width: 40px;
         height: 40px;
@@ -88,11 +84,16 @@ const StyledProject = styled.li`
       display: flex;
       align-items: center;
       margin-right: -10px;
-      color: var(--light-slate);
 
       a {
+        color: var(--light-gray);
         ${({ theme }) => theme.mixins.flexCenter};
         padding: 5px 7px;
+
+        &:hover,
+        &:focus {
+          color: var(--medium-gray);
+        }
 
         &.external {
           svg {
@@ -132,9 +133,7 @@ const StyledProject = styled.li`
   }
 
   .project-description {
-    color: var(--light-slate);
     font-size: 17px;
-
     a {
       ${({ theme }) => theme.mixins.inlineLink};
     }
@@ -188,7 +187,6 @@ const Projects = () => {
 
   const [showMore, setShowMore] = useState(false);
   const revealTitle = useRef(null);
-  const revealArchiveLink = useRef(null);
   const revealProjects = useRef([]);
   const prefersReducedMotion = usePrefersReducedMotion();
 
@@ -198,11 +196,10 @@ const Projects = () => {
     }
 
     sr.reveal(revealTitle.current, srConfig());
-    sr.reveal(revealArchiveLink.current, srConfig());
     revealProjects.current.forEach((ref, i) => sr.reveal(ref, srConfig(i * 100)));
   }, []);
 
-  const GRID_LIMIT = 6;
+  const GRID_LIMIT = 3;
   const projects = data.projects.edges.filter(({ node }) => node);
   const firstSix = projects.slice(0, GRID_LIMIT);
   const projectsToShow = showMore ? projects : firstSix;
@@ -262,10 +259,6 @@ const Projects = () => {
   return (
     <StyledProjectsSection>
       <h2 ref={revealTitle}>Other Noteworthy Projects</h2>
-
-      <Link className="inline-link archive-link" to="/archive" ref={revealArchiveLink}>
-        view the archive
-      </Link>
 
       <ul className="projects-grid">
         {prefersReducedMotion ? (
