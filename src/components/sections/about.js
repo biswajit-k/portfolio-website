@@ -3,18 +3,60 @@ import { StaticImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import { srConfig } from '@config';
 import sr from '@utils/sr';
+import { Icon } from '@components/icons';
 import { usePrefersReducedMotion } from '@hooks';
 
 const StyledAboutSection = styled.section`
   max-width: 900px;
+  font-size: var(--fz-lg);
+  .numbered-heading {
+    &:before {
+      display: none;
+    }
+  }
 
   .inner {
     display: grid;
     grid-template-columns: 3fr 2fr;
-    grid-gap: 50px;
+    grid-gap: 6rem;
 
     @media (max-width: 768px) {
       display: block;
+    }
+  }
+
+  .detail {
+    width: 300px;
+    color: var(--dark-gray);
+    margin-top: 30px;
+    font-size: var(--fz-md);
+
+    &__name {
+      color: var(--black);
+      font-weight: 600;
+      font-size: var(--fz-xl);
+      margin-bottom: 5px;
+    }
+
+    &__profession {
+      margin-bottom: 10px;
+    }
+
+    &__item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+
+      svg {
+        width: 20px;
+        height: 20px;
+        /* padding: 10px; */
+        color: var(--light-gray) !important;
+        margin-right: 10px;
+      }
+
+      &__text {
+      }
     }
   }
 `;
@@ -39,7 +81,7 @@ const StyledText = styled.div`
         content: '▹';
         position: absolute;
         left: 0;
-        color: var(--green);
+        color: var(--light-gray);
         font-size: var(--fz-sm);
         line-height: 12px;
       }
@@ -48,7 +90,7 @@ const StyledText = styled.div`
 `;
 const StyledPic = styled.div`
   position: relative;
-  max-width: 300px;
+  max-width: 240px;
 
   @media (max-width: 768px) {
     margin: 50px auto 0;
@@ -61,7 +103,7 @@ const StyledPic = styled.div`
     position: relative;
     width: 100%;
     border-radius: var(--border-radius);
-    background-color: var(--green);
+    background-color: var(--white);
 
     &:hover,
     &:focus {
@@ -105,7 +147,7 @@ const StyledPic = styled.div`
     }
 
     &:after {
-      border: 2px solid var(--green);
+      border: 2px solid var(--bright-gray);
       top: 14px;
       left: 14px;
       z-index: -1;
@@ -177,6 +219,22 @@ const About = () => {
               formats={['AUTO', 'WEBP', 'AVIF']}
               alt="Headshot"
             />
+          </div>
+          <div className="detail">
+            <p className="detail__name">Biswajit Kaushik</p>
+            <p className="detail__profession">Software Engineer</p>
+            <div className="detail__item">
+              <Icon className="detail__item__icon" name="Job" />
+              <p className="detail__item__text">Software Engineer @ Samsung R&D</p>
+            </div>
+            <div className="detail__item">
+              <Icon className="detail__item__icon" name="Location" />
+              <p className="detail__item__text">India</p>
+            </div>
+            <div className="detail__item">
+              <Icon className="detail__item__icon" name="Inbox" />
+              <p className="detail__item__text">biswajitkaushik02@gmail.com</p>
+            </div>
           </div>
         </StyledPic>
       </div>

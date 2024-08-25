@@ -14,3 +14,6 @@ export { default as IconLogo } from './logo';
 export { default as IconPlayStore } from './playstore';
 export { default as IconStar } from './star';
 export { default as IconTwitter } from './twitter';
+export { default as IconJob } from './job';
+export { default as IconLocation } from './location';
+export { default as IconInbox } from './inbox';
