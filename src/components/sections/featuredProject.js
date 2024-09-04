@@ -307,12 +307,15 @@ const StyledFeaturedProject = styled.li`
   }
 `;
 
-const Featured = () => {
+const FeaturedProject = () => {
   const data = useStaticQuery(graphql`
     {
       featured: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/content/featured/featured/" } }
-        sort: { fields: [frontmatter___date], order: ASC }
+        filter: {
+          fileAbsolutePath: { regex: "/content/projects/" }
+          frontmatter: { featured: { eq: true } }
+        }
+        sort: { fields: [frontmatter___order], order: ASC }
       ) {
         edges {
           node {
@@ -323,9 +326,10 @@ const Featured = () => {
                   gatsbyImageData(width: 700, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
                 }
               }
-              tech
+              featured
               github
               external
+              tech
             }
             html
           }
@@ -413,4 +417,4 @@ const Featured = () => {
   );
 };
 
-export default Featured;
+export default FeaturedProject;

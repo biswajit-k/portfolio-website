@@ -130,6 +130,7 @@ const StyledLinks = styled.div`
 
       a {
         padding: 10px;
+
         &:hover,
         &:focus-visible {
           font-weight: 600;
@@ -201,11 +202,11 @@ const Nav = ({ isHome }) => {
     </div>
   );
 
-  // const ResumeLink = (
-  //   <a className="resume-button" href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-  //     Resume
-  //   </a>
-  // );
+  const ResumeLink = (
+    <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+      Resume
+    </a>
+  );
 
   return (
     <StyledHeader scrollDirection={scrollDirection} scrolledToTop={scrolledToTop}>
@@ -222,6 +223,7 @@ const Nav = ({ isHome }) => {
                       <Link to={url}>{name}</Link>
                     </li>
                   ))}
+                <li>{ResumeLink}</li>
               </ol>
             </StyledLinks>
 
@@ -250,6 +252,7 @@ const Nav = ({ isHome }) => {
                       </CSSTransition>
                     ))}
                 </TransitionGroup>
+                <li>{ResumeLink}</li>
               </ol>
             </StyledLinks>
 

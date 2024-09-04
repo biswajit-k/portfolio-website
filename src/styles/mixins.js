@@ -157,6 +157,22 @@ const mixins = {
     }
   `,
 
+  underlineLink: css`
+    &:after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 1.34px;
+      position: relative;
+      bottom: 0.37em;
+      background-color: var(--black);
+      opacity: 0.5;
+      @media (prefers-reduced-motion: no-preference) {
+        transition: var(--transition);
+      }
+    }
+  `,
+
   resetList: css`
     list-style: none;
     padding: 0;

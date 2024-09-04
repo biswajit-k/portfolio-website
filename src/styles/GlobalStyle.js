@@ -234,7 +234,7 @@ const GlobalStyle = createGlobalStyle`
     display: inline-block;
     text-decoration: none;
     text-decoration-skip-ink: auto;
-    color: var(--black-hyperlink);
+    color: var(--dark-gray);
     position: relative;
     font-weight: 500;
     transition: var(--transition);
@@ -428,19 +428,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .underline_link {
-    &:after {
-      content: '';
-      display: block;
-      width: 100%;
-      height: 1.3px;
-      position: relative;
-      bottom: 0.37em;
-      background-color: var(--black);
-      opacity: 0.5;
-      @media (prefers-reduced-motion: no-preference) {
-        transition: var(--transition);
-      }
-    }
+    ${({ theme }) => theme.mixins.underlineLink};
   }
 
   .gatsby-image-outer-wrapper {

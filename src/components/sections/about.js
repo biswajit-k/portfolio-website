@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import { StaticImage } from 'gatsby-plugin-image';
+import { getImage, GatsbyImage } from 'gatsby-plugin-image';
+import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import { srConfig } from '@config';
 import sr from '@utils/sr';
@@ -63,7 +64,7 @@ const StyledAboutSection = styled.section`
 const StyledText = styled.div`
   ul.skills-list {
     display: grid;
-    grid-template-columns: repeat(2, minmax(140px, 200px));
+    grid-template-columns: repeat(2, minmax(140px, 260px));
     grid-gap: 0 10px;
     padding: 0;
     margin: 20px 0 0 0;
@@ -142,7 +143,7 @@ const StyledPic = styled.div`
     &:before {
       top: 0;
       left: 0;
-      background-color: var(--navy);
+      background-color: var(--bright-gray);
       mix-blend-mode: screen;
     }
 
@@ -156,6 +157,29 @@ const StyledPic = styled.div`
 `;
 
 const About = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      about: markdownRemark(fileAbsolutePath: { regex: "/content/about/index.md/" }) {
+        frontmatter {
+          name
+          profession
+          work
+          location
+          email
+          cover {
+            childImageSharp {
+              gatsbyImageData(width: 500, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+            }
+          }
+          skills
+        }
+        html
+      }
+    }
+  `);
+
+  const { frontmatter, html } = data.about;
+
   const revealContainer = useRef(null);
   const prefersReducedMotion = usePrefersReducedMotion();
 
@@ -167,7 +191,8 @@ const About = () => {
     sr.reveal(revealContainer.current, srConfig());
   }, []);
 
-  const skills = ['Flask', 'Django', 'React', 'Android (Kotlin)'];
+  const skills = frontmatter.skills;
+  const image = getImage(frontmatter.cover);
 
   return (
     <StyledAboutSection id="about" ref={revealContainer}>
@@ -175,34 +200,7 @@ const About = () => {
 
       <div className="inner">
         <StyledText>
-          <div>
-            <p>
-              Hello! My name is Biswajit Kaushik and I enjoy solving real-world problems and bring
-              them down to code. My interest in coding started during my freshman year at college
-              when I decided to build an{' '}
-              <a href="https://www.newline.co/courses/build-a-spotify-connected-app">
-                automatic door lock system
-              </a>{' '}
-              using Arduino. It gave me a sense of how powerful programming can be!
-            </p>
-
-            <p>
-              At Samsung R&D, I am the part of Samsung Health team. We are working on developing
-              solutions to digitalize health records of our users, making it easy for them to view
-              and share their health history seamlessly and securely.
-            </p>
-
-            <p>
-              I also recently{' '}
-              <a href="https://www.youtube.com/watch?v=JjedCSq7-J0">published a video</a> in which I
-              explaing how I have designed and implemented a log ingester system which allows bulk
-              insertion of log data through HTTP and provides the ability to query on the ingested
-              data in real-time. Make sure to check that out if you are a fan of large scale system
-              design. You will surely find something great.
-            </p>
-
-            <p>Here are a few technologies I've been working with recently:</p>
-          </div>
+          <div dangerouslySetInnerHTML={{ __html: html }} />
 
           <ul className="skills-list">
             {skills && skills.map((skill, i) => <li key={i}>{skill}</li>)}
@@ -211,29 +209,22 @@ const About = () => {
 
         <StyledPic>
           <div className="wrapper">
-            <StaticImage
-              className="img"
-              src="../../images/me.jpg"
-              width={500}
-              quality={95}
-              formats={['AUTO', 'WEBP', 'AVIF']}
-              alt="Headshot"
-            />
+            <GatsbyImage className="img" image={image} alt="Headshot" />
           </div>
           <div className="detail">
-            <p className="detail__name">Biswajit Kaushik</p>
-            <p className="detail__profession">Software Engineer</p>
+            <p className="detail__name">{frontmatter.name}</p>
+            <p className="detail__profession">{frontmatter.profession}</p>
             <div className="detail__item">
               <Icon className="detail__item__icon" name="Job" />
-              <p className="detail__item__text">Software Engineer @ Samsung R&D</p>
+              <p className="detail__item__text">{frontmatter.work}</p>
             </div>
             <div className="detail__item">
               <Icon className="detail__item__icon" name="Location" />
-              <p className="detail__item__text">India</p>
+              <p className="detail__item__text">{frontmatter.location}</p>
             </div>
             <div className="detail__item">
               <Icon className="detail__item__icon" name="Inbox" />
-              <p className="detail__item__text">biswajitkaushik02@gmail.com</p>
+              <p className="detail__item__text">{frontmatter.email}</p>
             </div>
           </div>
         </StyledPic>

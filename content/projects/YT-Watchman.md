@@ -1,9 +1,9 @@
 ---
-date: '2'
+order: 2
 title: 'Youtube Watchman'
-cover: './demo.png'
+cover: './images/yt-watchman-cover.png'
+featured: true
 github: 'https://github.com/biswajit-k/yt-watchman'
-external: 'https://github.com/biswajit-k/yt-watchman'
 tech:
   - Flask
   - React

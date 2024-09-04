@@ -3,88 +3,91 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import sr from '@utils/sr';
-import { srConfig } from '@config';
+import { srConfig, youtube } from '@config';
 import { usePrefersReducedMotion } from '@hooks';
 
+const FeaturedVideoSection = styled.section`
+  padding-top: 3rem;
+`;
+
 const StyledVideo = styled.a`
-  display: block;
-  transform: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem;
+  border: none;
 
   @media (max-width: 768px) {
     ${({ theme }) => theme.mixins.boxShadow};
   }
-  .thumbnail {
-    border-radius: var(--border-radius);
-    border: 1px solid var(--bright-gray);
-    margin-bottom: 1rem;
-
-    @media (max-width: 768px) {
-      &:before {
-        content: '';
-        display: block;
-        position: absolute;
-        z-index: 1;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        background: rgba(0, 0, 0, 0.5);
-        border-radius: var(--border-radius);
-        transition: var(--transition);
-      }
-    }
-  }
 
   .title {
-    color: var(--medium-gray);
-    font-weight: 500;
-    max-width: 100%;
-    font-size: var(--fz-xl);
-    margin-top: 1rem;
-    margin-bottom: 2rem;
-
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-
-    &:hover {
-      cursor: pointer;
-      color: var(--black);
-    }
-
-    @media (min-width: 768px) {
-      margin: 0 0 10px;
-    }
-
-    @media (max-width: 768px) {
-      a {
-        position: static;
-
-        &:before {
-          content: '';
-          display: block;
-          position: absolute;
-          z-index: 0;
-          width: 100%;
-          height: 100%;
-          top: 0;
-          left: 0;
-        }
-      }
-    }
+    font-weight: 600;
+    font-size: var(--fz-xxl);
+    padding-left: 0.2rem;
+    margin-bottom: 1rem;
   }
 
   .description {
-    font-size: var(--fz-sm);
+    font-size: var(--fz-lg);
     font-weight: 400;
-    max-width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
+    color: var(--medium-gray);
+    padding-left: 0.3rem;
+  }
+`;
+
+const StyledPic = styled.div`
+  position: relative;
+
+  margin-bottom: 2rem;
+
+  .wrapper {
+    ${({ theme }) => theme.mixins.boxShadow};
+    display: block;
+    position: relative;
+    width: 100%;
+    border-radius: var(--border-radius);
+    background-color: var(--white);
+
+    &:hover,
+    &:focus {
+      outline: 0;
+      transform: translate(-4px, -4px);
+
+      .img {
+        filter: none;
+        mix-blend-mode: normal;
+      }
+    }
+
+    .img {
+      position: relative;
+      border-radius: var(--border-radius);
+      mix-blend-mode: multiply;
+      filter: grayscale(100%) contrast(1);
+      transition: var(--transition);
+
+      & > div {
+        display: none !important;
+      }
+    }
+
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: var(--border-radius);
+      transition: var(--transition);
+    }
+
+    &:before {
+      top: 0;
+      left: 0;
+      background-color: var(--bright-gray);
+      mix-blend-mode: screen;
+    }
   }
 `;
 
@@ -110,7 +113,7 @@ const FeaturedVideo = () => {
   const data = useStaticQuery(graphql`
     {
       featured: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/content/featured/videos/" } }
+        filter: { fileAbsolutePath: { regex: "/content/videos/" } }
         sort: { fields: [frontmatter___date], order: ASC }
       ) {
         edges {
@@ -121,7 +124,7 @@ const FeaturedVideo = () => {
               date
               cover {
                 childImageSharp {
-                  gatsbyImageData(width: 700, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+                  gatsbyImageData(width: 500, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
                 }
               }
               link
@@ -148,7 +151,7 @@ const FeaturedVideo = () => {
   }, []);
 
   return (
-    <section id="featured-video">
+    <FeaturedVideoSection id="featured-video">
       <h2 className="numbered-heading" ref={revealTitle}>
         Featured Videos
       </h2>
@@ -161,7 +164,11 @@ const FeaturedVideo = () => {
 
             return (
               <StyledVideo key={i} href="#" ref={el => (revealVideo.current[i] = el)}>
-                <GatsbyImage image={image} alt={title} class="thumbnail" />
+                <StyledPic>
+                  <div className="wrapper">
+                    <GatsbyImage image={image} alt={title} class="img" />
+                  </div>
+                </StyledPic>
                 <div className="title">{title}</div>
                 <div className="description">{description}</div>
               </StyledVideo>
@@ -169,9 +176,11 @@ const FeaturedVideo = () => {
           })}
       </FeaturedVideoGrid>
       <MoreButton className="more-button" onClick={() => {}}>
-        See all &rarr;
+        <a href={youtube} target="_blank" rel="noopener noreferrer">
+          See all &rarr;
+        </a>
       </MoreButton>
-    </section>
+    </FeaturedVideoSection>
   );
 };
 

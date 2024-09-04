@@ -1,9 +1,8 @@
 import React from 'react';
-import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
-import { Layout, Projects, Featured } from '@components';
+import { Layout, Projects, FeaturedProject } from '@components';
 
 const StyledMainContainer = styled.main`
   & > header {
@@ -40,7 +39,7 @@ const ProjectPage = ({ location }) => (
         <h1 className="big-heading">Projects</h1>
         <p className="subtitle">Some of my recent projects</p>
       </header>
-      <Featured />
+      <FeaturedProject />
       <Projects />
     </StyledMainContainer>
   </Layout>
@@ -52,29 +51,3 @@ ProjectPage.propTypes = {
 };
 
 export default ProjectPage;
-
-export const pageQuery = graphql`
-  {
-    allMarkdownRemark(
-      filter: {
-        fileAbsolutePath: { regex: "/content/posts/" }
-        frontmatter: { draft: { ne: true } }
-      }
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
-      edges {
-        node {
-          frontmatter {
-            title
-            description
-            slug
-            date
-            tags
-            draft
-          }
-          html
-        }
-      }
-    }
-  }
-`;

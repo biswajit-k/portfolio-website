@@ -6,52 +6,94 @@ import { srConfig } from '@config';
 import { usePrefersReducedMotion } from '@hooks';
 
 const FeaturedPostSection = styled.section`
+  padding-top: 5rem;
+
   .link-container {
-    margin-top: 5rem;
+    margin-top: 4rem;
     text-align: end;
+    a {
+      font-size: var(--fz-md) !important;
+    }
+  }
+
+  .post_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 `;
 
-const StyledPost = styled.div`
-  .title {
+const StyledGrid = styled.ul`
+  ${({ theme }) => theme.mixins.resetList};
+  display: inline-flex;
+  align-items: baseline;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 2.5rem;
+`;
+
+const StyledPost = styled.li`
+  transition: var(--transition);
+  display: flex;
+
+  ${({ theme }) => theme.mixins.flexBetween};
+  gap: 3rem;
+  align-items: flex-start;
+
+  .more_link {
+    margin-left: 2px;
+  }
+
+  .metadata {
+    display: flex;
+    min-width: 8rem;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-size: var(--fz-lg);
+  }
+
+  .date {
     color: var(--medium-gray);
-    font-weight: 500;
-    font-size: clamp(24px, 5vw, 26px);
+    margin: 0.2rem 0;
+  }
 
-    &:hover {
-      cursor: pointer;
-      color: var(--black);
-    }
+  .read_time {
+    color: var(--light-gray);
+  }
 
-    @media (min-width: 768px) {
-      margin: 0 0 10px;
-    }
-
-    @media (max-width: 768px) {
-      a {
-        position: static;
-
-        &:before {
-          content: '';
-          display: block;
-          position: absolute;
-          z-index: 0;
-          width: 100%;
-          height: 100%;
-          top: 0;
-          left: 0;
-        }
-      }
-    }
+  .title {
+    font-size: var(--fz-xxl);
+    color: var(--black);
+    margin-top: 2px;
   }
 
   .description {
-    max-width: 700px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
+    margin: 1rem 0;
+    margin-top: 0.4rem;
+    font-size: var(--fz-xl);
+  }
+
+  @media (max-width: 870px) {
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .description {
+      margin-top: 0;
+    }
+
+    .date {
+      display: none;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .description {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
   }
 `;
 
@@ -59,7 +101,10 @@ const FeaturedPost = () => {
   const data = useStaticQuery(graphql`
     {
       featured: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/content/featured/posts/" } }
+        filter: {
+          fileAbsolutePath: { regex: "/content/posts/*/" }
+          frontmatter: { featured: { eq: true } }
+        }
         sort: { fields: [frontmatter___date], order: ASC }
       ) {
         edges {
@@ -78,7 +123,7 @@ const FeaturedPost = () => {
     }
   `);
 
-  const featuredPosts = data.featured.edges.filter(({ node }) => node);
+  const posts = data.featured.edges.filter(({ node }) => node);
   const revealTitle = useRef(null);
   const revealArchiveLink = useRef(null);
   const revealPost = useRef([]);
@@ -99,22 +144,35 @@ const FeaturedPost = () => {
       <h2 className="numbered-heading" ref={revealTitle}>
         Featured Posts
       </h2>
-      <div>
-        {featuredPosts &&
-          featuredPosts.map(({ node }, i) => {
-            const { frontmatter } = node;
-            const { title, description } = frontmatter;
-
-            return (
-              <StyledPost key={i} ref={el => (revealPost.current[i] = el)}>
-                <div className="title">{title}</div>
-                <p className="description">{description}</p>
-              </StyledPost>
-            );
-          })}
+      <div className="post_container">
+        <StyledGrid>
+          {posts.length > 0 &&
+            posts.map(({ node }, i) => {
+              const { frontmatter } = node;
+              const { title, description, slug, date } = frontmatter;
+              const formattedDate = new Date(date).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              });
+              return (
+                <StyledPost key={i}>
+                  <div className="metadata">
+                    <p className="date">{formattedDate}</p>
+                  </div>
+                  <div className="main">
+                    <Link to={slug}>
+                      <h3 className="title">{title}</h3>
+                    </Link>
+                    <p className="description">{description}</p>
+                  </div>
+                </StyledPost>
+              );
+            })}
+        </StyledGrid>
       </div>
       <div className="link-container">
-        <Link className="styled_link" to="/archive" ref={revealArchiveLink}>
+        <Link className="styled_link" to="/blog" ref={revealArchiveLink}>
           see all posts &rarr;
         </Link>
       </div>

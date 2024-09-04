@@ -24,7 +24,6 @@ const variables = css`
     --bright-gray: #adb5bd;
     --pure-white: #fff;
     --text-color: rgb(55 65 81 / 1);
-    --black-hyperlink: #0f172a;
 
     --font-sans: 'Calibre', 'Inter', 'San Francisco', 'SF Pro Text', -apple-system, system-ui,
       sans-serif;

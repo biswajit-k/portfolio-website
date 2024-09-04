@@ -79,12 +79,17 @@ const StyledPost = styled.li`
 
   .description {
     margin: 1rem 0;
+    margin-top: 0.4rem;
     font-size: var(--fz-lg);
   }
 
   @media (max-width: 870px) {
     flex-direction: column;
     gap: 0.5rem;
+
+    .description {
+      margin-top: 0;
+    }
 
     .date {
       display: none;
@@ -155,29 +160,6 @@ const BlogPage = ({ location, data }) => {
                         Read More &rarr;
                       </Link>
                     </div>
-                    {/* <div className="post__inner">
-                      <header>
-                        <div className="post__icon">
-                          <IconBookmark />
-                        </div>
-                        <h5 className="post__title">
-                          <Link to={slug}>{title}</Link>
-                        </h5>
-                        <p className="post__desc">{description}</p>
-                      </header>
-                      <footer>
-                        <span className="post__date">{formattedDate}</span>
-                        <ul className="post__tags">
-                          {tags.map((tag, i) => (
-                            <li key={i}>
-                              <Link to={`/blog/tags/${kebabCase(tag)}/`} className="inline-link">
-                                #{tag}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </footer>
-                    </div> */}
                   </StyledPost>
                 );
               })}
@@ -198,10 +180,7 @@ export default BlogPage;
 export const pageQuery = graphql`
   {
     allMarkdownRemark(
-      filter: {
-        fileAbsolutePath: { regex: "/content/posts/" }
-        frontmatter: { draft: { ne: true } }
-      }
+      filter: { fileAbsolutePath: { regex: "/content/posts/" } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       edges {
@@ -212,7 +191,6 @@ export const pageQuery = graphql`
             slug
             date
             tags
-            draft
           }
           html
         }

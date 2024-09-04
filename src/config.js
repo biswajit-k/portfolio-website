@@ -16,6 +16,8 @@ module.exports = {
     },
   ],
 
+  youtube: 'https://www.youtube.com/@biswajit-k-yt',
+
   navLinks: [
     {
       name: 'Blog',
@@ -29,10 +31,10 @@ module.exports = {
       name: 'About',
       url: '/about',
     },
-    {
-      name: 'Resume',
-      url: '/resume',
-    },
+    // {
+    //   name: 'Resume',
+    //   url: '/resume.pdf',
+    // },
   ],
 
   colors: {

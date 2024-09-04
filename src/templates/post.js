@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { Link, graphql } from 'gatsby';
 import kebabCase from 'lodash/kebabCase';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
@@ -31,10 +31,13 @@ const StyledPostContent = styled.div`
     line-height: 1.5;
   }
 
+  a {
+    ${({ theme }) => theme.mixins.underlineLink};
+  }
+
   li > a {
     font-weight: 400;
-    line-height: 1.6;
-    ${({ theme }) => theme.mixins.inlineLink};
+    line-height: 1.5;
   }
 
   code {
@@ -48,6 +51,10 @@ const StyledPostContent = styled.div`
   pre code {
     background-color: transparent;
     padding: 0;
+  }
+
+  ol {
+    padding-inline-start: 0;
   }
 `;
 
