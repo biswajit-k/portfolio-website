@@ -14,6 +14,10 @@ const FeaturedPostSection = styled.section`
     a {
       font-size: var(--fz-md) !important;
     }
+
+    @media (max-width: 768px) {
+      margin-top: 1rem;
+    }
   }
 
   .post_container {

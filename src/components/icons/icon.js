@@ -18,6 +18,7 @@ import {
   IconJob,
   IconLocation,
   IconInbox,
+  IconDownArrow,
 } from '@components/icons';
 
 const Icon = ({ name }) => {
@@ -56,6 +57,8 @@ const Icon = ({ name }) => {
       return <IconInbox />;
     case 'Location':
       return <IconLocation />;
+    case 'DownArrow':
+      return <IconDownArrow />;
     default:
       return <IconExternal />;
   }

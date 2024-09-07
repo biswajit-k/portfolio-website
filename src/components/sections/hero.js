@@ -1,20 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { navDelay, loaderDelay } from '@utils';
+import { Icon } from '@components/icons';
 import { usePrefersReducedMotion } from '@hooks';
 
 const StyledHeroSection = styled.section`
   ${({ theme }) => theme.mixins.flexCenter};
   flex-direction: column;
   align-items: flex-start;
-  min-height: 100vh;
-  height: 100vh;
+  /* min-height: 100vh;
+  height: 100vh; */
   padding: 0;
+  position: relative;
 
   @media (max-height: 700px) and (min-width: 700px), (max-width: 360px) {
     height: auto;
     padding-top: var(--nav-height);
+  }
+
+  @media (max-width: 768px) {
+    /* height: auto; */
+    /* min-height: auto; */
+    padding: auto;
+    /* padding-top: 10rem; */
   }
 
   h1 {
@@ -40,15 +50,33 @@ const StyledHeroSection = styled.section`
     /* max-width: 540px; */
   }
 
+  .down_arrow {
+    position: absolute;
+    bottom: 30px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    color: var(--light-gray) !important;
+  }
+
   .email-link {
     ${({ theme }) => theme.mixins.bigButton};
     margin-top: 50px;
   }
 `;
 
+// const styledDown = styled
+
 const Hero = () => {
   const [isMounted, setIsMounted] = useState(false);
   const prefersReducedMotion = usePrefersReducedMotion();
+  const [height, setHeight] = useState(window.innerHeight);
+
+  useEffect(() => {
+    const handleResize = () => setHeight(window.innerHeight);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     if (prefersReducedMotion) {
@@ -74,16 +102,11 @@ const Hero = () => {
       </p>
     </>
   );
-  // const five = (
-  //   <a className="email-link" href="https://dev.to/biswajitk" target="_blank" rel="noreferrer">
-  //     Check out my blogs!
-  //   </a>
-  // );
 
   const items = [one, three, four];
 
   return (
-    <StyledHeroSection>
+    <StyledHeroSection style={{ height: height }}>
       {prefersReducedMotion ? (
         <>
           {items.map((item, i) => (
@@ -98,6 +121,9 @@ const Hero = () => {
                 <div style={{ transitionDelay: `${i + 1}00ms` }}>{item}</div>
               </CSSTransition>
             ))}
+          <Link className="down_arrow" to="#featured-posts">
+            <Icon className="detail__item__icon" name="DownArrow" />
+          </Link>
         </TransitionGroup>
       )}
     </StyledHeroSection>

@@ -55,9 +55,6 @@ const StyledAboutSection = styled.section`
         color: var(--light-gray) !important;
         margin-right: 10px;
       }
-
-      &__text {
-      }
     }
   }
 `;

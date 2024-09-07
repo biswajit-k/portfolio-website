@@ -31,10 +31,10 @@ module.exports = {
       name: 'About',
       url: '/about',
     },
-    // {
-    //   name: 'Resume',
-    //   url: '/resume.pdf',
-    // },
+    {
+      name: 'Resume',
+      url: '/resume',
+    },
   ],
 
   colors: {

@@ -68,6 +68,7 @@ const StyledFeaturedProject = styled.li`
 
         @media (max-width: 768px) {
           margin: 0 10px 5px 0;
+          color: var(--dark-gray);
         }
       }
     }
@@ -165,6 +166,7 @@ const StyledFeaturedProject = styled.li`
       padding: 20px 0;
       background-color: transparent;
       box-shadow: none;
+      color: var(--dark-gray);
 
       &:hover {
         box-shadow: none;
@@ -203,7 +205,7 @@ const StyledFeaturedProject = styled.li`
 
       li {
         margin: 0 10px 5px 0;
-        color: var(--lightest-slate);
+        color: var(--light-gray);
       }
     }
   }
@@ -251,6 +253,7 @@ const StyledFeaturedProject = styled.li`
     grid-column: 6 / -1;
     grid-row: 1 / -1;
     position: relative;
+    object-fit: contain;
     z-index: 1;
 
     @media (max-width: 768px) {
@@ -301,7 +304,7 @@ const StyledFeaturedProject = styled.li`
         object-fit: cover;
         width: auto;
         height: 100%;
-        filter: grayscale(100%) contrast(1) brightness(50%);
+        filter: grayscale(100%) contrast(1) brightness(40%);
       }
     }
   }
@@ -323,7 +326,12 @@ const FeaturedProject = () => {
               title
               cover {
                 childImageSharp {
-                  gatsbyImageData(width: 700, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+                  gatsbyImageData(
+                    width: 700
+                    height: 700
+                    placeholder: BLURRED
+                    formats: [AUTO, WEBP, AVIF]
+                  )
                 }
               }
               featured

@@ -1,1 +1,0 @@
-1. Removed cta from featured.js and all featured project(can see spotify v2 featured markdown code in Original website)

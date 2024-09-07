@@ -11,6 +11,7 @@ const StyledProjectsSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 4rem;
 
   h2 {
     font-size: clamp(24px, 5vw, var(--fz-heading));

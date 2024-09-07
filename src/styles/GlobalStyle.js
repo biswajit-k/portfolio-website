@@ -131,7 +131,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     @media (max-width: 480px) {
-      padding: 60px 0;
+      padding: 25px 0;
     }
   }
 
@@ -167,6 +167,10 @@ const GlobalStyle = createGlobalStyle`
     white-space: nowrap;
     transform: none !important;
 
+    @media (max-width: 768px) {
+      margin: 10px 0;
+    }
+
     &:before {
       position: relative;
       bottom: 4px;
@@ -188,18 +192,13 @@ const GlobalStyle = createGlobalStyle`
       content: '';
       display: block;
       position: relative;
-      top: -5px;
-      width: 300px;
-      height: 1px;
       margin-left: 20px;
-      background-color: var(--lightest-navy);
+      width: 100%;
+      height: 2px;
+      top: 0;
+      background-color: var(--light-gray);
 
-      @media (max-width: 1080px) {
-        width: 200px;
-      }
-      @media (max-width: 768px) {
-        width: 100%;
-      }
+
       @media (max-width: 600px) {
         margin-left: 10px;
       }

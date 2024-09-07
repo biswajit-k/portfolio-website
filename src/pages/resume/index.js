@@ -204,9 +204,13 @@ const ResumePage = ({ location }) => {
       <StyledMainContainer>
         <header>
           <h1 className="big-heading">Biswajit Kaushik</h1>
-          <Link className="subtitle styled_link" to="/archive">
+          <a
+            href="/resume.pdf"
+            className='className="subtitle styled_link'
+            target="_blank"
+            rel="noopener noreferrer">
             View in PDF
-          </Link>
+          </a>
         </header>
         <StyledSectionContainer>
           <StyledSection>

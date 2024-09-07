@@ -16,4 +16,5 @@ export { default as IconStar } from './star';
 export { default as IconTwitter } from './twitter';
 export { default as IconJob } from './job';
 export { default as IconLocation } from './location';
+export { default as IconDownArrow } from './downArrow';
 export { default as IconInbox } from './inbox';

@@ -7,23 +7,26 @@ import { srConfig, youtube } from '@config';
 import { usePrefersReducedMotion } from '@hooks';
 
 const FeaturedVideoSection = styled.section`
-  padding-top: 3rem;
+  @media (min-width: 768px) {
+    padding-top: 3rem;
+  }
+
+  @media (max-width: 768px) and (min-width: 500px) {
+    padding-top: 0;
+  }
 `;
 
 const StyledVideo = styled.a`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   padding: 1rem;
   border: none;
-
-  @media (max-width: 768px) {
-    ${({ theme }) => theme.mixins.boxShadow};
-  }
+  max-width: 400px;
 
   .title {
     font-weight: 600;
-    font-size: var(--fz-xxl);
+    font-size: var(--fz-xxxl);
     padding-left: 0.2rem;
     margin-bottom: 1rem;
   }
@@ -92,13 +95,14 @@ const StyledPic = styled.div`
 `;
 
 const FeaturedVideoGrid = styled.div`
-  display: grid;
-  margin-top: 40px;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
   gap: 16px;
+  text-align: center;
 
-  @media (max-width: 468px) {
-    grid-template-columns: 1fr;
+  @media (max-width: 600px) {
+    flex-direction: column;
   }
 `;
 
@@ -107,6 +111,11 @@ const MoreButton = styled.button`
   ${({ theme }) => theme.mixins.smallButton};
   margin: 80px auto;
   margin-bottom: 0;
+
+  @media (max-width: 600px) {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
 `;
 
 const FeaturedVideo = () => {
@@ -159,11 +168,11 @@ const FeaturedVideo = () => {
         {featuredVideos &&
           featuredVideos.map(({ node }, i) => {
             const { frontmatter } = node;
-            const { title, description, cover } = frontmatter;
+            const { title, description, cover, link } = frontmatter;
             const image = getImage(cover);
 
             return (
-              <StyledVideo key={i} href="#" ref={el => (revealVideo.current[i] = el)}>
+              <StyledVideo key={i} href={link} ref={el => (revealVideo.current[i] = el)}>
                 <StyledPic>
                   <div className="wrapper">
                     <GatsbyImage image={image} alt={title} class="img" />

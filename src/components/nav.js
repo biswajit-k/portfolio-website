@@ -202,12 +202,6 @@ const Nav = ({ isHome }) => {
     </div>
   );
 
-  const ResumeLink = (
-    <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-      Resume
-    </a>
-  );
-
   return (
     <StyledHeader scrollDirection={scrollDirection} scrolledToTop={scrolledToTop}>
       <StyledNav>
@@ -223,7 +217,6 @@ const Nav = ({ isHome }) => {
                       <Link to={url}>{name}</Link>
                     </li>
                   ))}
-                <li>{ResumeLink}</li>
               </ol>
             </StyledLinks>
 
@@ -252,7 +245,6 @@ const Nav = ({ isHome }) => {
                       </CSSTransition>
                     ))}
                 </TransitionGroup>
-                <li>{ResumeLink}</li>
               </ol>
             </StyledLinks>
 

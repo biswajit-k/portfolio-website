@@ -90,7 +90,7 @@ const Footer = () => (
     </StyledSocialLinks>
 
     <StyledCredit tabindex="-1">
-      <a href="https://v4.brittanychiang.com">
+      <a href="https://brittanychiang.com">
         <div>Inspired by Brittany Chiang</div>
       </a>
       <div className="copy">
