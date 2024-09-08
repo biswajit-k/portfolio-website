@@ -9,7 +9,6 @@ export { default as Email } from './email';
 export { default as Footer } from './footer';
 export { default as Hero } from './sections/hero';
 export { default as About } from './sections/about';
-export { default as Jobs } from './sections/jobs';
 export { default as FeaturedProject } from './sections/featuredProject';
 export { default as FeaturedPost } from './sections/featuredPost';
 export { default as FeaturedVideo } from './sections/featuredVideos';

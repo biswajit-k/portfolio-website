@@ -51,12 +51,17 @@ const StyledHeroSection = styled.section`
   }
 
   .down_arrow {
+    display: none;
     position: absolute;
     bottom: 30px;
     right: 20px;
     width: 30px;
     height: 30px;
     color: var(--light-gray) !important;
+
+    @media (max-width: 768px) {
+      display: block;
+    }
   }
 
   .email-link {
