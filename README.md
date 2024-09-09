@@ -281,33 +281,15 @@ Don't forget to give the project a star! Thanks again!
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/biswajit-k/log-ingester-elasticsearch.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/biswajit-k/MonoSlate.svg?style=for-the-badge
 [contributors-url]: https://github.com/biswajit-k/MonoSlate/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/biswajit-k/log-ingester-elasticsearch.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/biswajit-k/MonoSlate.svg?style=for-the-badge
 [forks-url]: https://github.com/biswajit-k/MonoSlate/network/members
-[stars-shield]: https://img.shields.io/github/stars/biswajit-k/log-ingester-elasticsearch.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/biswajit-k/MonoSlate.svg?style=for-the-badge
 [stars-url]: https://github.com/biswajit-k/MonoSlate/stargazers
 [issues-shield]: https://img.shields.io/github/issues/biswajit-k/MonoSlate.svg?style=for-the-badge
 [issues-url]: https://github.com/biswajit-k/MonoSlate/issues
-[license-shield]: https://img.shields.io/github/license/biswajit-k/log-ingester-elasticsearch.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/biswajit-k/MonoSlate.svg?style=for-the-badge
 [license-url]: https://github.com/biswajit-k/MonoSlate/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/biswajit-kaushik
-[product-screenshot]: images/screenshot.png
-[system-design-fastapi]: images/design-fastapi.png
-[system-design-kafka]: images/design-kafka.png
-[performance]: images/performance.png
-[ElasticSearch]: https://img.shields.io/badge/-ElasticSearch-00bfb3?style=for-the-badge&logo=elasticsearch&logoColor=f9b110
-[elastic-url]: https://www.elastic.co/elasticsearch
-[FastAPI]: https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi
-[fastapi-url]: https://fastapi.tiangolo.com/
-[Flask]: https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask
-[flask-url]: https://flask.palletsprojects.com/
-[Docker]: https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white
-[docker-url]: https://www.docker.com/
-[bootstrap]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
-[bootstrap-url]: https://getbootstrap.com
-[jquery]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[jquery-url]: https://jquery.com
-[kafka]: https://img.shields.io/badge/Apache%20Kafka-000?style=for-the-badge&logo=apachekafka
-[kafka-url]: https://kafka.apache.org/
