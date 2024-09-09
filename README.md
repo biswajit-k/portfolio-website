@@ -23,8 +23,6 @@
     <img src="images/logo.png" alt="Logo" width="200">
   </a>
 
-<h3 align="center" style="position:absolute; left:-9999px;">MonoSlate</h3>
-
   <p align="center">
     A sleek, fast, and fully customizable portfolio for everyone
     <br />
