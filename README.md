@@ -16,13 +16,6 @@
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-<!--
-TODO:
-image logo
-search "demo video" and change link
-
- -->
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -30,7 +23,7 @@ search "demo video" and change link
     <img src="images/logo.png" alt="Logo" width="200">
   </a>
 
-<h3 align="center">MonoSlate</h3>
+<h3 align="center" style="position:absolute; left:-9999px;">MonoSlate</h3>
 
   <p align="center">
     A sleek, fast, and fully customizable portfolio for everyone
@@ -45,31 +38,6 @@ search "demo video" and change link
     <a href="https://github.com/biswajit-k/MonoSlate/issues">Request Feature</a>
   </p>
 </div>
-
-<!--
-create a logo for monoslate - like log ingester elasticsearch
-
-goal: this project is to create value for people as a template
-mention - features, how to use it
-
-add mit lisence, mention template copied attribution also
-update built with tags
-
-sections
-about
-  tell anyone in simple terms what it provides-
-  include key features -
-    design
-    sections
-    easy to add content
-    customizable
-    free fast deployable on netlify
-
-  built with
-
-
-
- -->
 
 <!-- TABLE OF CONTENTS -->
 <details>

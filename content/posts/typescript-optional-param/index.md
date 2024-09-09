@@ -4,7 +4,7 @@ description: "Optional parameters are those parameters whose value may or may no
 It is different from a default parameter for which we need to provide a default value at the time of defining the function."
 date: 2023-03-27
 featured: false
-slug: https://www.geeksforgeeks.org/how-does-typescript-support-optional-parameters-in-function-as-every-parameter-is-optional-for-a-function-in-javascript
+slug: https://www.geeksforgeeks.org/how-does-typescript-support-optional-parameters-in-function-as-every-parameter-is-optional-for-a-function-in-javascript/
 tags:
   - typescript
 ---

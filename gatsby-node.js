@@ -45,11 +45,15 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const posts = result.data.postsRemark.edges;
 
   posts.forEach(({ node }) => {
-    createPage({
-      path: node.frontmatter.slug,
-      component: postTemplate,
-      context: {},
-    });
+    const slug = node.frontmatter.slug;
+    const isFullUrl = slug.startsWith('http://') || slug.startsWith('https://'); // don't create page for external links
+    if (!isFullUrl) {
+      createPage({
+        path: node.frontmatter.slug,
+        component: postTemplate,
+        context: {},
+      });
+    }
   });
 
   // Extract tag data from query
