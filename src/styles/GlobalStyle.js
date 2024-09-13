@@ -22,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
 
   /* Provide basic, default focus styles.*/
   :focus {
-    outline: 2px dashed var(--green);
+    outline: 2px dashed var(--medium-gray);   /* Replace with the desired gray shade */
     outline-offset: 3px;
   }
 
@@ -41,7 +41,7 @@ const GlobalStyle = createGlobalStyle`
     focus.
   */
   :focus-visible {
-    outline: 2px dashed var(--green);
+    outline: 2px dashed var(--medium-gray);   /* Replace with the desired gray shade */
     outline-offset: 3px;
   }
 
