@@ -4,7 +4,7 @@
 <!--
 *** I'm using markdown "reference style" links for readability.
 *** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
+*** See the bottom of this document for the declaration of the reference variables.
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
@@ -55,7 +55,7 @@
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
-        <li><a href="#building-for-production">Building For Production</a></li>
+        <li><a href="#building-for-production">Building for Production</a></li>
         <li><a href="#folder-structure">Folder Structure</a></li>
       </ul>
     </li>
@@ -76,8 +76,8 @@ This project is a fork of [v4 of Brittany Chiang's portfolio website](https://gi
 
 The key features are:
 
-- **Sleek Design**: Modern, minimalist and consistent design
-- **Organized Section**: Offers essential sections that suits everyone which are easy and intuitive to nagivate
+- **Sleek Design**: Modern, minimalist and consistent design.
+- **Organized Sections**: Essential sections that suit everyone and are easy and intuitive to nagivate.
 - **Customizable Content**: Effortlessly update your content and sections with zero coding work.
 - **Free Hosting**: Quickly and easily deploy your portfolio website for free on [Netlify](https://www.netlify.com/) or [Github Pages](https://pages.github.com/).
 
@@ -94,7 +94,7 @@ The key features are:
 
 ## Getting Started
 
-To get a local copy up and running follow these simple steps.
+To get a local copy up and running follow these simple steps:
 
 ### Prerequisites
 
@@ -188,33 +188,32 @@ Finally, below services will be running-
 
 ```
 
-Below are some details for important files you would deal with while customizing the template for your use-
+Below are some details for important files you would deal with while customizing the template for your use:
 
-`content` folder contains all your personal details that would be automatically fetched and reflected on the website. Also the `config.js` file inside `src` folder with your details.
+- `content` folder contains all your personal details that would be automatically fetched and reflected on the website. Also the `config.js` file inside `src` folder with your details.
 
-`src` folder contains all the source files for any customization.
+- `src` folder contains all the source files for any customization.
 
-- `images` folder contains logo images
-- `components` folder contains the layout files like header, footer, etc
-- `pages` folder contains all the pages of the website. You can add your own page folder which would be accessible at `https://localhost:8000/<folder-name>`
+- `images` folder contains logo images.
+- `components` folder contains the layout files like header, footer, etc.
+- `pages` folder contains all the pages of the website. You can add your own page folder which would be accessible at `https://localhost:8000/<folder-name>`.
 - `styles` folder contains the common styling used in the website. For customizations, you would mostly work with `GlobalStyle.js` and `variables.js` files.
 
-`static` folder contains all the static files you would want to serve in your website. These can also be assible at `https://localhost:8000/<file-name>` directly.
+- `static` folder contains all the static files you would want to serve in your website. These can also be accessed at `https://localhost:8000/<file-name>` directly.
 
-`gatsby-config.js` and `gatsby-node.js` files contain some other details like plugins and metadata that you might want to look at.
+- `gatsby-config.js` and `gatsby-node.js` files contain some other details like plugins and metadata that you might want to look at.
 
 **Note**
 
-_If you wish to just modify the content and keep the design same. You just have to modify `content`, `static` folders and `config.js` file. That's it._
+_If you wish to only modify the content and keep the design the same, you just have to modify the `content`, `static` folders and `config.js` files. That's it._
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ROADMAP -->
 
 ## Future Improvements
-
-code refactor - redundant, Extraneous code, featured section design,  
-The template is ready to be used, however like always, there are scope of improvements that I see which I have listed down below-
+ 
+The template is ready to be used, however like always, there is some scope for improvement that I see which I have listed below:
 
 **Code Refactoring**
 
@@ -222,19 +221,19 @@ There is a lot of code, especially styling which is redundant. Also, some parts 
 
 **Template Usability**
 
-Current template is provides good flexibility in customizing content overall. However, some improvements can be made to improve it further like option to add custom logo, flexibility in changing design, re-arranging sections like lego blocks adn more.
+Overall, the current template provides good flexibility in customizing content. However, some improvements can be made to improve it further like the option to add a custom logo, flexibility in changing the design, re-arranging sections like lego blocks and more.
 
 **Improving Accessibility**
 
-General HTML need to be replaced with semantic version, navigating sections through keyboard navigation, use of ARIA attributes and other practices for improving accessibility need to be implemented.
+General HTML needs to be replaced with semantic versions, navigating sections through keyboard navigation, use of ARIA attributes and other practices for improving accessibility need to be implemented.
 
 **Featured Section Design**
 
-I want to have a different design for the featured section on the home page, the current one don't completely sync with the overall design.
+I want to have a different design for the featured section on the home page. The current one doesn't completely sync with the overall design.
 
-Apart from that, I am open to more suggestions, you can always open an issue and we can discuss and build on it further.
+Apart from that, I am open to more suggestions. You can always open an issue and we can discuss and build on it further.
 
-See the [contribution section](#contributing) on how yo propose improvements.
+See the [contribution section](#contributing) on how to propose improvements.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
