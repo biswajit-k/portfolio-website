@@ -17,7 +17,7 @@ const StyledTagsContainer = styled.main`
       font-size: var(--fz-xxl);
 
       a {
-        color: var(--medium-gray);
+        color: ${({ theme }) => theme.colors.primary};
         .count {
           color: var(--slate);
           font-family: var(--font-mono);

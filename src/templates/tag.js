@@ -26,11 +26,11 @@ const StyledTagsContainer = styled.main`
         font-size: inherit;
         margin: 0;
         a {
-          color: var(--black);
+          color: ${({ theme }) => theme.colors.primaryStrongest};
         }
       }
       .subtitle {
-        color: var(--medium-gray);
+        color: ${({ theme }) => theme.colors.primary};
         font-size: var(--fz-sm);
 
         .tag {

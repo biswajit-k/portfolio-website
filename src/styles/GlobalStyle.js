@@ -22,7 +22,8 @@ const GlobalStyle = createGlobalStyle`
 
   /* Provide basic, default focus styles.*/
   :focus {
-    outline: 2px dashed var(--medium-gray);   /* Replace with the desired gray shade */
+    outline: 2px dashed ${({ theme }) =>
+    theme.colors.primary};   /* Replace with the desired gray shade */
     outline-offset: 3px;
   }
 
@@ -41,7 +42,8 @@ const GlobalStyle = createGlobalStyle`
     focus.
   */
   :focus-visible {
-    outline: 2px dashed var(--medium-gray);   /* Replace with the desired gray shade */
+    outline: 2px dashed ${({ theme }) =>
+    theme.colors.primary};   /* Replace with the desired gray shade */
     outline-offset: 3px;
   }
 
@@ -52,11 +54,12 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    background-color: var(--pure-white);
-    color: var(--medium-gray);
+    background-color: ${({ theme }) => theme.colors.body};
+    color: ${({ theme }) => theme.colors.primary};
     font-family: var(--font-sans);
     font-size: var(--fz-xl);
     line-height: 1.3;
+
 
     @media (max-width: 480px) {
       font-size: var(--fz-lg);
@@ -143,7 +146,7 @@ const GlobalStyle = createGlobalStyle`
   h6 {
     margin: 0 0 10px 0;
     font-weight: 600;
-    color: var(--dark-gray);
+    color: ${({ theme }) => theme.colors.primaryStrong};
     line-height: 1.1;
   }
 
@@ -177,7 +180,7 @@ const GlobalStyle = createGlobalStyle`
       counter-increment: section;
       content: '0' counter(section) '.';
       margin-right: 10px;
-      color: var(--medium-gray);
+      color: ${({ theme }) => theme.colors.primary};
       font-family: var(--font-mono);
       font-size: clamp(var(--fz-md), 3vw, var(--fz-xl));
       font-weight: 400;
@@ -196,7 +199,7 @@ const GlobalStyle = createGlobalStyle`
       width: 100%;
       height: 2px;
       top: 0;
-      background-color: var(--light-gray);
+      background-color: ${({ theme }) => theme.colors.primaryLight};
 
 
       @media (max-width: 600px) {
@@ -233,7 +236,7 @@ const GlobalStyle = createGlobalStyle`
     display: inline-block;
     text-decoration: none;
     text-decoration-skip-ink: auto;
-    color: var(--dark-gray);
+    color: ${({ theme }) => theme.colors.primaryStrong};
     position: relative;
     font-weight: 500;
     transition: var(--transition);
@@ -278,7 +281,7 @@ const GlobalStyle = createGlobalStyle`
 
     & > code {
       background-color: var(--light-navy);
-      color: var(--white);
+      color: ${({ theme }) => theme.colors.bodyLight};
       font-size: var(--fz-sm);
       border-radius: var(--border-radius);
       padding: 0.3em 0.5em;
@@ -299,7 +302,7 @@ const GlobalStyle = createGlobalStyle`
           content: '▹';
           position: absolute;
           left: 0;
-          color: var(--light-gray);
+          color: ${({ theme }) => theme.colors.primaryLight};
         }
       }
     }
@@ -360,7 +363,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   #logo {
-    color: var(--black-light);
+    color: ${({ theme }) => theme.colors.logo};
   }
 
   .overline {
@@ -371,7 +374,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .subtitle {
-    color: var(--medium-gray);
+    color: ${({ theme }) => theme.colors.primary};
     margin: 0 0 20px 0;
     font-size: var(--fz-md);
     font-family: var(--font-mono);
@@ -386,7 +389,7 @@ const GlobalStyle = createGlobalStyle`
 
     a {
       ${({ theme }) => theme.mixins.inlineLink};
-      color: var(--medium-gray);
+      color: ${({ theme }) => theme.colors.primary};
       line-height: 1.5;
     }
   }
@@ -413,7 +416,7 @@ const GlobalStyle = createGlobalStyle`
     display: inline-block;
     text-decoration: none;
     text-decoration-skip-ink: auto;
-    color: var(--medium-gray);
+    color: ${({ theme }) => theme.colors.primary};
     position: relative;
     font-weight: 500;
     transition: var(--transition);

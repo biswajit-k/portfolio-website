@@ -28,12 +28,12 @@ const StyledAboutSection = styled.section`
 
   .detail {
     width: 300px;
-    color: var(--dark-gray);
+    color: ${({ theme }) => theme.colors.primaryStrong};
     margin-top: 30px;
     font-size: var(--fz-md);
 
     &__name {
-      color: var(--black);
+      color: ${({ theme }) => theme.colors.primaryStrongest};
       font-weight: 600;
       font-size: var(--fz-xl);
       margin-bottom: 5px;
@@ -52,7 +52,7 @@ const StyledAboutSection = styled.section`
         width: 20px;
         height: 20px;
         /* padding: 10px; */
-        color: var(--light-gray) !important;
+        color: ${({ theme }) => theme.colors.primaryLight} !important;
         margin-right: 10px;
       }
     }
@@ -79,7 +79,7 @@ const StyledText = styled.div`
         content: '▹';
         position: absolute;
         left: 0;
-        color: var(--light-gray);
+        color: ${({ theme }) => theme.colors.primaryLight};
         font-size: var(--fz-sm);
         line-height: 12px;
       }
@@ -101,7 +101,7 @@ const StyledPic = styled.div`
     position: relative;
     width: 100%;
     border-radius: var(--border-radius);
-    background-color: var(--white);
+    background-color: ${({ theme }) => theme.colors.bodyLight};
 
     &:hover,
     &:focus {
@@ -140,12 +140,12 @@ const StyledPic = styled.div`
     &:before {
       top: 0;
       left: 0;
-      background-color: var(--bright-gray);
+      background-color: ${({ theme }) => theme.colors.primaryLightest};
       mix-blend-mode: screen;
     }
 
     &:after {
-      border: 2px solid var(--bright-gray);
+      border: 2px solid ${({ theme }) => theme.colors.primaryLightest};
       top: 14px;
       left: 14px;
       z-index: -1;

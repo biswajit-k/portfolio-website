@@ -34,7 +34,7 @@ const StyledVideo = styled.a`
   .description {
     font-size: var(--fz-lg);
     font-weight: 400;
-    color: var(--medium-gray);
+    color: ${({ theme }) => theme.colors.primary};
     padding-left: 0.3rem;
   }
 `;
@@ -50,7 +50,7 @@ const StyledPic = styled.div`
     position: relative;
     width: 100%;
     border-radius: var(--border-radius);
-    background-color: var(--white);
+    background-color: ${({ theme }) => theme.colors.bodyLight};
 
     &:hover,
     &:focus {
@@ -88,7 +88,7 @@ const StyledPic = styled.div`
     &:before {
       top: 0;
       left: 0;
-      background-color: var(--bright-gray);
+      background-color: ${({ theme }) => theme.colors.primaryLightest};
       mix-blend-mode: screen;
     }
   }

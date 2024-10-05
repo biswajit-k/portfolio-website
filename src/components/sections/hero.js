@@ -29,7 +29,7 @@ const StyledHeroSection = styled.section`
 
   h1 {
     margin: 0 0 30px 4px;
-    color: var(--medium-gray);
+    color: ${({ theme }) => theme.colors.primary};
     font-family: var(--font-mono);
     font-size: clamp(var(--fz-sm), 5vw, var(--fz-md));
     font-weight: 400;
@@ -41,7 +41,7 @@ const StyledHeroSection = styled.section`
 
   h3 {
     margin-top: 5px;
-    color: var(--black);
+    color: ${({ theme }) => theme.colors.primaryStrongest};
     line-height: 0.9;
   }
 
@@ -57,7 +57,7 @@ const StyledHeroSection = styled.section`
     right: 20px;
     width: 30px;
     height: 30px;
-    color: var(--light-gray) !important;
+    color: ${({ theme }) => theme.colors.primaryLight} !important;
 
     @media (max-width: 768px) {
       display: block;

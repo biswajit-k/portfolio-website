@@ -51,7 +51,7 @@ const StyledSection = styled.div`
   .section {
     font-size: var(--fz-xxl);
     font-weight: 600;
-    color: var(--black);
+    color: ${({ theme }) => theme.colors.primaryStrongest};
     min-width: 10rem;
   }
   .company {
@@ -66,7 +66,7 @@ const StyledSection = styled.div`
       width: 100%;
       height: 2px;
       top: 0;
-      background-color: var(--light-gray);
+      background-color: ${({ theme }) => theme.colors.primaryLight};
     }
     & > .styled_link {
       font-size: var(--fz-lg) !important;
@@ -88,7 +88,7 @@ const StyledSection = styled.div`
   }
   .role {
     font-size: var(--fz-lg);
-    color: var(--black);
+    color: ${({ theme }) => theme.colors.primaryStrongest};
     font-weight: 600;
   }
   .time {
@@ -113,7 +113,7 @@ const StyledSection = styled.div`
     h3 {
       font-size: var(--fz-xl);
       font-weight: 600;
-      color: var(--black);
+      color: ${({ theme }) => theme.colors.primaryStrongest};
       margin-bottom: 0.4rem;
     }
 
@@ -122,7 +122,7 @@ const StyledSection = styled.div`
   }
 
   .highlight {
-    color: var(--black);
+    color: ${({ theme }) => theme.colors.primaryStrongest};
     font-weight: 500;
   }
   li:not(:last-child) {

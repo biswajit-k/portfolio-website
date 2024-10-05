@@ -8,6 +8,7 @@ import { loaderDelay } from '@utils';
 import { useScrollDirection, usePrefersReducedMotion } from '@hooks';
 import { Menu } from '@components';
 import { IconLogo, IconHex } from '@components/icons';
+import { useTheme } from '@styles';
 
 const StyledHeader = styled.header`
   ${({ theme }) => theme.mixins.flexBetween};
@@ -17,7 +18,7 @@ const StyledHeader = styled.header`
   padding: 0px 50px;
   width: 100%;
   height: var(--nav-height);
-  background-color: rgb(255 255 255 / 0.2) !important;
+  background-color: ${({ theme }) => theme.colors.bodyTranslucent} !important;
   filter: none !important;
   pointer-events: auto !important;
   user-select: auto !important;
@@ -65,7 +66,7 @@ const StyledNav = styled.nav`
     ${({ theme }) => theme.mixins.flexCenter};
 
     a {
-      color: var(--white);
+      color: ${({ theme }) => theme.colors.bodyLight};
       width: 42px;
       height: 42px;
       position: relative;
@@ -91,7 +92,7 @@ const StyledNav = styled.nav`
             transition: var(--transition);
           }
           polygon {
-            fill: var(--pure-white);
+            fill: ${({ theme }) => theme.colors.body};
           }
         }
       }
@@ -126,7 +127,7 @@ const StyledLinks = styled.div`
       margin: 0 5px;
       position: relative;
       font-size: var(--fz-xs);
-      color: var(--black);
+      color: ${({ theme }) => theme.colors.primaryStrongest};
 
       a {
         padding: 10px;
@@ -147,11 +148,23 @@ const StyledLinks = styled.div`
   }
 `;
 
+const ToggleButton = styled.button`
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: ${({ theme }) => theme.colors.body};
+  color: ${({ theme }) => theme.colors.primary};
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+`;
+
 const Nav = ({ isHome }) => {
   const [isMounted, setIsMounted] = useState(!isHome);
   const scrollDirection = useScrollDirection('down');
   const [scrolledToTop, setScrolledToTop] = useState(true);
   const prefersReducedMotion = usePrefersReducedMotion();
+  const { toggleTheme } = useTheme();
 
   const handleScroll = () => {
     setScrolledToTop(window.pageYOffset < 50);
@@ -257,6 +270,7 @@ const Nav = ({ isHome }) => {
             </TransitionGroup>
           </>
         )}
+        <ToggleButton onClick={toggleTheme}>Toggle Theme</ToggleButton>
       </StyledNav>
     </StyledHeader>
   );

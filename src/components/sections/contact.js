@@ -16,7 +16,7 @@ const StyledContactSection = styled.section`
   .overline {
     display: block;
     margin-bottom: 20px;
-    color: var(--medium-gray);
+    color: ${({ theme }) => theme.colors.primary};
     font-family: var(--font-mono);
     font-size: var(--fz-md);
     font-weight: 400;

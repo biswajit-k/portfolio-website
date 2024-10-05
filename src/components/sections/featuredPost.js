@@ -57,17 +57,17 @@ const StyledPost = styled.li`
   }
 
   .date {
-    color: var(--medium-gray);
+    color: ${({ theme }) => theme.colors.primary};
     margin: 0.2rem 0;
   }
 
   .read_time {
-    color: var(--light-gray);
+    color: ${({ theme }) => theme.colors.primaryLight};
   }
 
   .title {
     font-size: var(--fz-xxl);
-    color: var(--black);
+    color: ${({ theme }) => theme.colors.primaryStrongest};
     margin-top: 2px;
   }
 
