@@ -64,7 +64,7 @@ const StyledProject = styled.li`
     height: 100%;
     padding: 2rem 1.75rem;
     border-radius: var(--border-radius);
-    background-color: var(--pure-white);
+    background-color: ${({ theme }) => theme.colors.body};
     transition: var(--transition);
     overflow: auto;
   }
@@ -74,7 +74,7 @@ const StyledProject = styled.li`
     margin-bottom: 35px;
 
     .folder {
-      color: var(--light-gray);
+      color: ${({ theme }) => theme.colors.primaryLight};
       svg {
         width: 40px;
         height: 40px;
@@ -87,13 +87,13 @@ const StyledProject = styled.li`
       margin-right: -10px;
 
       a {
-        color: var(--light-gray);
+        color: ${({ theme }) => theme.colors.primaryLight};
         ${({ theme }) => theme.mixins.flexCenter};
         padding: 5px 7px;
 
         &:hover,
         &:focus {
-          color: var(--medium-gray);
+          color: ${({ theme }) => theme.colors.primary};
         }
 
         &.external {

@@ -13,7 +13,7 @@ const StyledFooter = styled.footer`
 
   .copy {
     display: flex;
-    color: var(--black);
+    color: ${({ theme }) => theme.colors.primaryStrongest};
     align-items: center;
     justify-content: center;
     margin-top: 0.4rem;
@@ -72,6 +72,12 @@ const StyledCredit = styled.div`
       height: 14px;
     }
   }
+
+  .separator {
+    font-size: 0.5rem;
+    color: ${({ theme }) => theme.colors.primaryLight};
+    margin: 0 5px;
+  }
 `;
 
 const Footer = () => (
@@ -95,10 +101,7 @@ const Footer = () => (
       </a>
       <div className="copy">
         <span style={{ fontSize: '1rem', marginRight: '5px' }}>&copy;</span> Biswajit Kaushik{' '}
-        <span style={{ fontSize: '.5rem', color: 'var(--light-gray)', margin: '0px 5px' }}>
-          &bull;
-        </span>{' '}
-        2024
+        <span className="separator">&bull;</span> 2024
       </div>
     </StyledCredit>
   </StyledFooter>

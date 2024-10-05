@@ -68,7 +68,7 @@ const StyledFeaturedProject = styled.li`
 
         @media (max-width: 768px) {
           margin: 0 10px 5px 0;
-          color: var(--dark-gray);
+          color: ${({ theme }) => theme.colors.primaryStrong};
         }
       }
     }
@@ -118,7 +118,7 @@ const StyledFeaturedProject = styled.li`
 
   .project-overline {
     margin: 10px 0;
-    color: var(--medium-gray);
+    color: ${({ theme }) => theme.colors.primary};
     font-family: var(--font-mono);
     font-size: var(--fz-xs);
     font-weight: 400;
@@ -133,7 +133,7 @@ const StyledFeaturedProject = styled.li`
     }
 
     @media (max-width: 768px) {
-      color: var(--white);
+      color: ${({ theme }) => theme.colors.bodyLight};
 
       a {
         position: static;
@@ -166,7 +166,7 @@ const StyledFeaturedProject = styled.li`
       padding: 20px 0;
       background-color: transparent;
       box-shadow: none;
-      color: var(--dark-gray);
+      color: ${({ theme }) => theme.colors.primaryStrong};
 
       &:hover {
         box-shadow: none;
@@ -178,7 +178,7 @@ const StyledFeaturedProject = styled.li`
     }
 
     strong {
-      color: var(--white);
+      color: ${({ theme }) => theme.colors.bodyLight};
       font-weight: normal;
     }
   }
@@ -194,7 +194,7 @@ const StyledFeaturedProject = styled.li`
 
     li {
       margin: 0 20px 5px 0;
-      color: var(--light-gray);
+      color: ${({ theme }) => theme.colors.primaryLight};
       font-family: var(--font-mono);
       font-size: var(--fz-xs);
       white-space: nowrap;
@@ -205,7 +205,7 @@ const StyledFeaturedProject = styled.li`
 
       li {
         margin: 0 10px 5px 0;
-        color: var(--light-gray);
+        color: ${({ theme }) => theme.colors.primaryLight};
       }
     }
   }
@@ -218,14 +218,14 @@ const StyledFeaturedProject = styled.li`
     margin-left: -10px;
 
     a {
-      color: var(--light-gray);
+      color: ${({ theme }) => theme.colors.primaryLight};
       ${({ theme }) => theme.mixins.flexCenter};
       padding: 10px;
       transition: var(--transition);
 
       &:hover,
       &:focus {
-        color: var(--medium-gray);
+        color: ${({ theme }) => theme.colors.primary};
       }
 
       &.external {

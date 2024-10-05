@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import styled, { ThemeProvider } from 'styled-components';
+import styled from 'styled-components';
 import { Head, Loader, Nav, Social, Email, Footer } from '@components';
-import { GlobalStyle, theme } from '@styles';
+import { GlobalStyle } from '@styles';
+import { WebsiteThemeProvider } from '../styles/theme';
 
 const StyledContent = styled.div`
   display: flex;
@@ -51,9 +52,8 @@ const Layout = ({ children, location }) => {
       <Head />
 
       <div id="root">
-        <ThemeProvider theme={theme}>
+        <WebsiteThemeProvider>
           <GlobalStyle />
-
           {isLoading && isHome ? (
             <Loader finishLoading={() => setIsLoading(false)} />
           ) : (
@@ -68,7 +68,7 @@ const Layout = ({ children, location }) => {
               </div>
             </StyledContent>
           )}
-        </ThemeProvider>
+        </WebsiteThemeProvider>
       </div>
     </>
   );

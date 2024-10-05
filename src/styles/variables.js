@@ -1,29 +1,55 @@
 import { css } from 'styled-components';
 
+export const colors = {
+  darkNavy: '#020c1b',
+  navy: '#0a192f',
+  lightNavy: '#112240',
+  lightestNavy: '#233554',
+  navyShadow: 'rgba(2, 12, 27, 0.7)',
+  darkSlate: '#495670',
+  slate: '#8892b0',
+  lightSlate: '#a8b2d1',
+  lightestSlate: '#ccd6f6',
+  white: '#e6f1ff',
+  green: '#64ffda',
+  greenTint: 'rgba(100, 255, 218, 0.1)',
+  pink: '#f57dff',
+  blue: '#57cbff',
+  black: 'rgb(15 23 42 / 1)',
+  blackLight: 'rgb(23 23 23 / 1)',
+  darkGray: '#343a40',
+  mediumGray: '#495057',
+  lightGray: '#6c757d',
+  brightGray: '#adb5bd',
+  pureWhite: '#fff',
+  pureWhiteTranslucent: 'rgba(255, 255, 255, 0.2)',
+  textColor: 'rgb(55 65 81 / 1)',
+};
+
 const variables = css`
   :root {
-    --dark-navy: #020c1b;
-    --navy: #0a192f;
-    --light-navy: #112240;
-    --lightest-navy: #233554;
-    --navy-shadow: rgba(2, 12, 27, 0.7);
-    --dark-slate: #495670;
-    --slate: #8892b0;
-    --light-slate: #a8b2d1;
-    --lightest-slate: #ccd6f6;
-    --white: #e6f1ff;
-    --green: #64ffda;
-    --green-tint: rgba(100, 255, 218, 0.1);
-    --pink: #f57dff;
-    --blue: #57cbff;
-    --black: rgb(15 23 42 / 1);
-    --black-light: rgb(23 23 23 / 1);
-    --dark-gray: #343a40;
-    --medium-gray: #495057;
-    --light-gray: #6c757d;
-    --bright-gray: #adb5bd;
-    --pure-white: #fff;
-    --text-color: rgb(55 65 81 / 1);
+    --dark-navy: ${colors.darkNavy};
+    --navy: ${colors.navy};
+    --light-navy: ${colors.lightNavy};
+    --lightest-navy: ${colors.lightestNavy};
+    --navy-shadow: ${colors.navyShadow};
+    --dark-slate: ${colors.darkSlate};
+    --slate: ${colors.slate};
+    --light-slate: ${colors.lightSlate};
+    --lightest-slate: ${colors.lightestSlate};
+    --white: ${colors.white};
+    --green: ${colors.green};
+    --green-tint: ${colors.greenTint};
+    --pink: ${colors.pink};
+    --blue: ${colors.blue};
+    --black: ${colors.black};
+    --black-light: ${colors.blackLight};
+    --dark-gray: ${colors.darkGray};
+    --medium-gray: ${colors.mediumGray};
+    --light-gray: ${colors.lightGray};
+    --bright-gray: ${colors.brightGray};
+    --pure-white: ${colors.pureWhite};
+    --text-color: ${colors.textColor};
 
     --font-sans: 'Calibre', 'Inter', 'San Francisco', 'SF Pro Text', -apple-system, system-ui,
       sans-serif;

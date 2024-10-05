@@ -22,4 +22,16 @@ IndexPage.propTypes = {
   location: PropTypes.object.isRequired,
 };
 
+// const App = ({ location }) => (
+//   <ThemeProvider>
+//     <IndexPage location={location} />
+//   </ThemeProvider>
+// );
+
 export default IndexPage;
+
+// App.propTypes = {
+//   location: PropTypes.object.isRequired,
+// };
+
+// export default App;
