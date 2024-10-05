@@ -1,6 +1,8 @@
 module.exports = {
   email: 'biswajitkaushik02@gmail.com',
 
+  name: 'Biswajit Kaushik',
+
   socialMedia: [
     {
       name: 'GitHub',

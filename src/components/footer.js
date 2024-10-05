@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Icon } from '@components/icons';
-import { socialMedia } from '@config';
+import { socialMedia, name } from '@config';
 
 const StyledFooter = styled.footer`
   ${({ theme }) => theme.mixins.flexCenter};
@@ -90,11 +90,19 @@ const Footer = () => (
     </StyledSocialLinks>
 
     <StyledCredit tabindex="-1">
-      <a href="https://brittanychiang.com">
-        <div>Inspired by Brittany Chiang</div>
-      </a>
       <div className="copy">
-        <span style={{ fontSize: '1rem', marginRight: '5px' }}>&copy;</span> Biswajit Kaushik{' '}
+        <a href="https://github.com/biswajit-k/MonoSlate">
+          <div>Copy Website Template</div>
+        </a>
+        <span style={{ fontSize: '.5rem', color: 'var(--light-gray)', margin: '0px 5px' }}>
+          &bull;
+        </span>
+        <a href="https://brittanychiang.com">
+          <div>Inspired by Brittany Chiang</div>
+        </a>
+      </div>
+      <div className="copy">
+        <span style={{ fontSize: '1rem', marginRight: '5px' }}>&copy;</span> {name}{' '}
         <span style={{ fontSize: '.5rem', color: 'var(--light-gray)', margin: '0px 5px' }}>
           &bull;
         </span>{' '}
